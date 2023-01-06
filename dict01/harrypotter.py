@@ -285,7 +285,7 @@ def main():
         else:
             print('That was not a valid option, you might be a muggle\n')
     #prints the counter totals for each house
-    print(f'Gryffindor:{G}\nSlytherin:{S}\nHufflepuff{H}\nRavenclaw:{R}')
+    #print(f'Gryffindor:{G}\nSlytherin:{S}\nHufflepuff{H}\nRavenclaw:{R}')
 
     if G > R and G > S and G > H:
         print('\n You belong in GRYFFINDOR')
