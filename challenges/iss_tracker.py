@@ -7,7 +7,21 @@ import requests
 import datetime as dt
 import reverse_geocoder as rg
 
+
 def main():
+
+    country = ""
+
+    def country(c):
+        ccode_lib = 'http://country.io/names.json'
+        ccode_raw = requests.get(ccode_lib)
+
+        ccode = ccode_raw.json()
+      
+        return (ccode.get(cc))
+
+
+
 
     iss_now = 'http://api.open-notify.org/iss-now.json'
     iss_raw = requests.get(iss_now)
@@ -30,15 +44,17 @@ def main():
 
     lat= iss.get('iss_position').get('latitude')
     lon= iss.get('iss_position').get('longitude')
-
     # reverse_geocoder MUST be passed a tuple as the argument!
     coords_tuple= (lat, lon)
 
     result = rg.search(coords_tuple, verbose=False)
                                  # verbose=False removes an annoying output that reads 
                                  # "Loading formatted geocoded file..."
-    print(result[0].get('name') , result[0].get('cc'))
 
+    cc = result[0].get('cc')
+    country = country(cc)
+
+    print(result[0].get('name'), ", "  , country)
 
 main()
 
